@@ -1,0 +1,29 @@
+<%@page import="java.util.Calendar"%>
+<%@ page language="java" contentType="text/html; charset=EUC-KR"
+    pageEncoding="EUC-KR"%>
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="EUC-KR">
+<title>Project2_2</title>
+</head>
+<body>
+<%java.util.Calendar cal=java.util.Calendar.getInstance(); 
+int year=cal.get(java.util.Calendar.YEAR);
+int month=cal.get(java.util.Calendar.MONTH);
+int date=cal.get(java.util.Calendar.DATE);
+out.print(year+" "+month+" "+date);
+%>
+<TABLE>
+	<TR>
+		<TD></TD>
+		<TD></TD>
+		<TD><%out.print("1");%></TD>
+		<TD></TD>
+		<TD></TD>
+		<TD></TD>
+	</TR>
+</TABLE>
+
+</body>
+</html>

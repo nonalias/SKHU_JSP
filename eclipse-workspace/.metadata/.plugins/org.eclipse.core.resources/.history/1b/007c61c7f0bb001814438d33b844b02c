@@ -1,0 +1,33 @@
+<%@page import="java.util.Calendar"%>
+<%@ page language="java" contentType="text/html; charset=EUC-KR"
+    pageEncoding="EUC-KR"%>
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="EUC-KR">
+<title>Project2_2</title>
+</head>
+<body>
+<%
+int r=7;
+int c=7;
+int i;
+java.util.Calendar cal=java.util.Calendar.getInstance(); 
+int count=cal.getActualMaximum(Calendar.DATE);
+int year=cal.get(java.util.Calendar.YEAR);
+int month=cal.get(java.util.Calendar.MONTH)+1;
+int date=cal.get(java.util.Calendar.DATE);
+out.write("<TABLE>");
+out.write("<TR><Th>일</Th></TR>");
+out.write("<TR><Th>월</Th></TR>");
+out.write("<TR><Th>화</Th></TR>");
+out.write("<TR><Th>수</Th></TR>");
+out.write("<TR><Th>목</Th></TR>");
+out.write("<TR><Th>금</Th></TR>");
+out.write("<TR><Th>토</Th></TR>");
+out.write("</TABLE>");
+
+%>
+
+</body>
+</html>

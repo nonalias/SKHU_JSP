@@ -1,0 +1,70 @@
+<%@page import="java.util.Calendar"%>
+<%@ page language="java" contentType="text/html; charset=EUC-KR"
+    pageEncoding="EUC-KR"%>
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="EUC-KR">
+<title>Project2_2</title>
+</head>
+<body >
+
+<%
+int r=7;
+int c=7;
+int i;
+java.util.Calendar cal=java.util.Calendar.getInstance(); 
+int count=cal.getActualMaximum(Calendar.DAY_OF_MONTH);
+int year=cal.get(java.util.Calendar.YEAR);
+int month=cal.get(java.util.Calendar.MONTH)+1;
+int date=cal.get(java.util.Calendar.DATE);
+String today=year+"-"+month+"-"+date;
+out.print(year+"년");out.write("<div style=\"text-align:left\">");
+out.print(month+"월");out.write("<div style=\"text-align:center\">");
+out.print(today);out.write("<div style=\"text-align:right\">");
+out.write("<style> table{border-collapse : collapse} </style>");
+out.write("<TABLE border=\"1px solid black\">");
+out.write("<TD><Th>일</Th></TD>");
+out.write("<TD><Th>월</Th></TD>");
+out.write("<TD><Th>화</Th></TD>");
+out.write("<TD><Th>수</Th></TD>");
+out.write("<TD><Th>목</Th></TD>");
+out.write("<TD><Th>금</Th></TD>");
+out.write("<TD><Th>토</Th></TD>");
+r=r-1;
+Boolean p=true;
+int start=0;
+
+loop1 :for(i=0;i<r;i++){
+	
+	out.write("<TR>");
+	for(int j=0;j<c;j++){
+		if(start==count)
+			break loop1;
+		start+=1;
+		out.write("<TD>");
+		if(p==true){
+		for(int k=1;k<Calendar.DAY_OF_WEEK;k++){
+			out.write("<Th></Th>");out.write("<Th></Th>");
+			j++;
+			p=false;
+			}
+		
+		
+		}
+		out.write("<Th>");
+		out.print(start);
+		out.write("</Th>");
+		out.write("</TD>");
+		
+	}
+	out.write("</TR>");
+
+}
+
+out.write("</TABLE>");
+
+%>
+
+</body>
+</html>
