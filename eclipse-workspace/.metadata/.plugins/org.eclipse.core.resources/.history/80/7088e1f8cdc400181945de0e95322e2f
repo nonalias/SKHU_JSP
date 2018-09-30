@@ -1,0 +1,99 @@
+<%@page import="java.util.Calendar"%>
+<%@page import="java.util.*" %>
+<%@ page language="java" contentType="text/html; charset=UTF-8"
+    pageEncoding="UTF-8"%>
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Project2_2</title>
+</head>
+<body >
+
+<%
+
+int r=7;
+int c=7;
+int i;
+java.util.Calendar cal=java.util.Calendar.getInstance(); 
+String srtyear=request.getParameter("year");
+String srtmonth=request.getParameter("month");
+String srtdate=request.getParameter("date");
+
+int year=cal.get(java.util.Calendar.YEAR);
+int month=cal.get(java.util.Calendar.MONTH);
+int date=cal.get(java.util.Calendar.DATE);
+int l=date;
+if(srtyear!=null){
+	year=Integer.parseInt(srtyear);
+	month=Integer.parseInt(srtmonth);
+	date=Integer.parseInt(srtdate);
+}
+String today=year+"-"+(month+1)+"-"+l;
+cal.set(year,month,1);
+int count=cal.getActualMaximum(Calendar.DAY_OF_MONTH);
+int st=cal.get(Calendar.DAY_OF_WEEK);
+
+out.write("<div>");
+out.write("<h2><div style=\"border :1px solid white; float: left; width: 33%; text-align:left;\">");
+out.write("<a href=\"./Project2_2.jsp?year="+(year-1)+"&month="+month+"&date="+date+"\">◀&nbsp;</a>");
+out.write(year+"년");
+out.write("<a href=\"./Project2_2.jsp?year="+(year+1)+"&month="+month+"&date="+date+"\">&nbsp;▶</a></div></h2>");                   //년
+
+out.write("<h2><div style=\"border :1px solid white; float: left; width: 33%;text-align:center;\">");
+out.write("<a href=\"./Project2_2.jsp?year="+year+"&month="+((month==0)?month:(month-1))+"&date="+date+"\">◀&nbsp;</a>");
+out.write((month+1)+"월");
+out.write("<a href=\"./Project2_2.jsp?year="+year+"&month="+((month==11)?month:(month+1))+"&date="+date+"\">&nbsp;▶</a></div></h2>");                  //월
+
+out.write("<h2><div style=\"border :1px solid white; float: left; width: 33%;text-align : right;\">"+today+"</div></h2>");            //오늘날짜 
+
+out.write("</div>");
+
+out.write("<TABLE border=\"1px solid black\" >"); out.write("<TR>");
+out.write("<Th>일</Th>");
+out.write("<Th>월</Th>");
+out.write("<Th>화</Th>");
+out.write("<Th>수</Th>");
+out.write("<Th>목</Th>");
+out.write("<Th>금</Th>");
+out.write("<Th>토</Th>");
+out.write("</TR>");
+
+r=r-1;
+Boolean p=true;
+int start=0;
+out.write("<style> table,th,td{border-collapse : collapse} table{width:100%} table{height:300px}</style>");
+loop1 :for(i=0;i<r;i++){
+	
+	out.write("<TR>");
+	for(int j=0;j<c;j++){
+		if(start==count)
+			break loop1;
+		start+=1;
+		
+		if(p==true){
+		for(int k=1;k<st;k++){
+			out.write("<Th></Th>");
+			j++;
+			p=false;
+			}
+		
+		
+		}
+		out.write("<Th>");
+		out.print(start);
+		out.write("</Th>");
+		
+		
+	}
+	out.write("</TR>");
+
+}
+
+
+out.write("</TABLE>");
+
+%>
+
+</body>
+</html>

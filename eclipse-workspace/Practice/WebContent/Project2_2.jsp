@@ -1,40 +1,64 @@
 <%@page import="java.util.Calendar"%>
-<%@ page language="java" contentType="text/html; charset=EUC-KR"
-    pageEncoding="EUC-KR"%>
+<%@page import="java.util.*" %>
+<%@ page language="java" contentType="text/html; charset=UTF-8"
+    pageEncoding="UTF-8"%>
 <!DOCTYPE html>
 <html>
 <head>
-<meta charset="EUC-KR">
+<meta charset="UTF-8">
 <title>Project2_2</title>
 </head>
 <body >
-<div>
+
 <%
 
 int r=7;
 int c=7;
 int i;
 java.util.Calendar cal=java.util.Calendar.getInstance(); 
-int count=cal.getActualMaximum(Calendar.DAY_OF_MONTH);
+String srtyear=request.getParameter("year");
+String srtmonth=request.getParameter("month");
+String srtdate=request.getParameter("date");
+
 int year=cal.get(java.util.Calendar.YEAR);
-int month=cal.get(java.util.Calendar.MONTH)+1;
+int month=cal.get(java.util.Calendar.MONTH);
 int date=cal.get(java.util.Calendar.DATE);
-String today=year+"-"+month+"-"+date;
+int l=date;
+if(srtyear!=null){
+	year=Integer.parseInt(srtyear);
+	month=Integer.parseInt(srtmonth);
+	date=Integer.parseInt(srtdate);
+}
+String today=year+"-"+(month+1)+"-"+l;
+cal.set(year,month,1);
+int count=cal.getActualMaximum(Calendar.DAY_OF_MONTH);
+int st=cal.get(Calendar.DAY_OF_WEEK);
 
-out.write("<h2><div style=\"border :1px solid white; float: left; width: 33%; text-align:center;\">"+year+"³â</div></h2>");
-out.write("<h2><div style=\"border :1px solid white; float: left; width: 33%;text-align:center;\">"+month+"¿ù</div></h2>");
-out.write("<h2><div style=\"border :1px solid white; float: left; width: 33%;text-align : center;\">"+today+"</div></h2>");
+out.write("<div>");
+out.write("<h2><div style=\"border :1px solid white; float: left; width: 33%; text-align:left;\">");
+out.write("<a href=\"./Project2_2.jsp?year="+(year-1)+"&month="+month+"&date="+date+"\">â—€&nbsp;</a>");
+out.write(year+"ë…„");
+out.write("<a href=\"./Project2_2.jsp?year="+(year+1)+"&month="+month+"&date="+date+"\">&nbsp;â–¶</a></div></h2>");                   //ë…„
 
+out.write("<h2><div style=\"border :1px solid white; float: left; width: 33%;text-align:center;\">");
+out.write("<a href=\"./Project2_2.jsp?year="+year+"&month="+((month==0)?month:(month-1))+"&date="+date+"\">â—€&nbsp;</a>");
+out.write((month+1)+"ì›”");
+out.write("<a href=\"./Project2_2.jsp?year="+year+"&month="+((month==11)?month:(month+1))+"&date="+date+"\">&nbsp;â–¶</a></div></h2>");                  //ì›”
+
+out.write("<h2><div style=\"border :1px solid white; float: left; width: 33%;text-align : right;\">"+today+"</div></h2>");            //ì˜¤ëŠ˜ë‚ ì§œ 
+
+out.write("</div>");
 
 out.write("<TABLE border=\"1px solid black\" >"); out.write("<TR>");
-out.write("<Th>ÀÏ</Th>");
-out.write("<Th>¿ù</Th>");
-out.write("<Th>È­</Th>");
-out.write("<Th>¼ö</Th>");
-out.write("<Th>¸ñ</Th>");
-out.write("<Th>±İ</Th>");
-out.write("<Th>Åä</Th>");
+out.write("<Th>ì¼</Th>");
+out.write("<Th>ì›”</Th>");
+out.write("<Th>í™”</Th>");
+out.write("<Th>ìˆ˜</Th>");
+out.write("<Th>ëª©</Th>");
+out.write("<Th>ê¸ˆ</Th>");
+out.write("<Th>í† </Th>");
 out.write("</TR>");
+
 r=r-1;
 Boolean p=true;
 int start=0;
@@ -48,7 +72,7 @@ loop1 :for(i=0;i<r;i++){
 		start+=1;
 		
 		if(p==true){
-		for(int k=1;k<Calendar.DAY_OF_WEEK;k++){
+		for(int k=1;k<st;k++){
 			out.write("<Th></Th>");
 			j++;
 			p=false;
@@ -68,8 +92,9 @@ loop1 :for(i=0;i<r;i++){
 
 
 out.write("</TABLE>");
+out.write("<h2><div style=\"border :1px solid white; float: right;text-align : right;\"><a href=\"./Project2_2.jsp\">ì´ˆê¸°í™”</a></div></h2>");
 
 %>
-</div>
+
 </body>
 </html>
