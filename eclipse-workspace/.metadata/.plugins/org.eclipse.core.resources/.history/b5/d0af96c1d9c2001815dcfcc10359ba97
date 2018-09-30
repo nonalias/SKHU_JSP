@@ -21,9 +21,9 @@ int month=cal.get(java.util.Calendar.MONTH)+1;
 int date=cal.get(java.util.Calendar.DATE);
 String today=year+"-"+month+"-"+date;
 
-out.write("<h2><div style=\"border :1px solid white; float: left; width: 33%; text-align:center;\">"+year+"년</div></h2>");
-out.write("<h2><div style=\"border :1px solid white; float: left; width: 33%;text-align:center;\">"+month+"월</div></h2>");
-out.write("<h2><div style=\"border :1px solid white; float: left; width: 33%;text-align : center;\">"+today+"</div></h2>");
+out.write("<div style=\"border :1px solid white; float: left; width: 33%; text-align:center;\">"+year+"년</div>");
+out.write("<div style=\"border :1px solid white; float: left; width: 33%;text-align:center;\">"+month+"월</div>");
+out.write("<div style=\"border :1px solid white; float: left; width: 33%;text-align : center;\">"+today+"</div>");
 
 
 out.write("<TABLE border=\"1px solid black\" >"); out.write("<TR>");

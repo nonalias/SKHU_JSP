@@ -11,3 +11,5 @@ C:\Users\김태훈\OneDrive - 성공회대학교\eclipse-workspace\.metadata\.plugins\org
 \Practice\src
 C:\Users\user\OneDrive - 성공회대학교\eclipse-workspace\.metadata\.plugins\org.eclipse.jst.jsp.core\jspsearch\3552584990.index
 \Practice\src
+C:\Users\user\Desktop\SKHU_JSP\eclipse-workspace\.metadata\.plugins\org.eclipse.jst.jsp.core\jspsearch\3552584990.index
+\Practice\src
