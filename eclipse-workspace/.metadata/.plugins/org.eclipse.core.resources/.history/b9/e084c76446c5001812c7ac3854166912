@@ -1,0 +1,69 @@
+<%@ page import="java.util.Calendar" %>
+<%@ page language="java" contentType="text/html; charset=UTF-8"
+    pageEncoding="UTF-8"%>
+<!DOCTYPE html>
+<%
+String yoil[]={"일","월","화","수","목","금","토"};
+Calendar cal=Calendar.getInstance();
+int year=cal.get(Calendar.YEAR);
+int month=cal.get(Calendar.MONTH);
+int date=cal.get(Calendar.DATE);
+
+String stryear=request.getParameter("year");
+String strmonth=request.getParameter("month");
+String strdate=request.getParameter("date");
+if(stryear!=null){
+	year=Integer.parseInt(stryear);
+	month=Integer.parseInt(strmonth);
+	date=Integer.parseInt(strdate);
+}
+int start=cal.get(Calendar.DAY_OF_WEEK);
+int last=cal.getActualMaximum(Calendar.DAY_OF_MONTH);
+String today=year+"-"+(month+1)+"-"+date;
+cal.set(year,month,date);
+%>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+</head>
+<body>
+<div>
+	<div style="width:33%;text-align: left;float:left;">
+		<a href="./Pro2_2.jsp?year=<%=(year-1) %>&month=<%=month %>&date=<%=date %>">
+			◀&nbsp;
+		</a>
+		<%=year%>년
+		<a href="./Pro2_2.jsp?year=<%=(year+1) %>&month=<%=month %>&date=<%=date %>">
+			▶&nbsp;
+		</a>
+	</div>
+	
+	<div style="width:33%;text-align: center;float:left;">
+		<a href="./Pro2_2.jsp?year=<%=year %>&month=<%=(month==0)?month:(month-1) %>&date=<%=date%>">
+			◀&nbsp;
+		</a>
+		<%=(month+1) %>월
+		<a href="./Pro2_2.jsp?year=<%=year %>&month=<%=(month==11)?month:(month+1) %>&date=<%=date%>">
+			▶&nbsp;
+		</a>
+	</div >
+	
+	<div style="width:33%;text-align: right;float:left;">
+		<%=today %>
+	</div>
+</div>
+<Table>
+<TR>
+<%
+int i=0;
+while(!yoil[i++].isempty(){ 
+%>
+<th><%out.print(yoil[i]);%></th>
+<%} %>
+</TR>
+
+
+</Table>
+</body>
+</html>
