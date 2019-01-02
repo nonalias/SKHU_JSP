@@ -1,0 +1,19 @@
+<%@ page language="java" contentType="text/html; charset=UTF-8"
+    pageEncoding="UTF-8"%>
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+</head>
+<body>
+	<p>저희 사이트에 방문해 주셔서 감사합니다.</p>
+	<%
+	out.clear();
+	%>
+	<p>고객님 께서는 저희 사이트의 정회원 입니다.</p>
+	<p>고객님께 마일리지 점수 100점을 지급합니다.</p>
+	<%out.close(); %>
+	<p>저희 사이트를 앞으로도 계속 이용해주시면 감사하겠습니다.</p>
+</body>
+</html>

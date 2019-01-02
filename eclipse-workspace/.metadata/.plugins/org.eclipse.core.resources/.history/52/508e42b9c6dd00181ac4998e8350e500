@@ -1,0 +1,20 @@
+package beans;
+
+public class Exercise5_2{
+	private String id;
+	private String password;
+	private String _id;
+	private String _password;
+	
+	public Exercise5_2() {
+		_id="admin";
+		_password="1234";
+	}
+	
+	public boolean checkUser() {
+		if(id.equals(_id)&&password.equals(_password))
+			return true;
+		else return false;
+	}
+	
+}

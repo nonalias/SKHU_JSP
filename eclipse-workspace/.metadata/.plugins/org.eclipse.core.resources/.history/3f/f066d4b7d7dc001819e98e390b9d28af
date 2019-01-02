@@ -1,0 +1,30 @@
+<%@ page language="java" contentType="text/html; charset=UTF-8"
+    pageEncoding="UTF-8"%>
+<!DOCTYPE html>
+<html>
+<head>
+
+<title>Exercise 5_1</title>
+</head>
+<body>
+
+<table width="500 px" border="1" cellpadding="0" cellspacing="0">
+<tr>
+	<td width="200 px">이름</td>
+	<td>홍길동</td>
+	
+</tr>
+<tr>
+	<td>혈액형</td>
+	<td>A 형</td>
+</tr>
+
+</table>
+
+
+
+</body>
+</html>
+<jsp:include page="Exercise5_1_2.jsp" flush="false">
+	<jsp:param name="bloodType" value="A" />
+</jsp:include>

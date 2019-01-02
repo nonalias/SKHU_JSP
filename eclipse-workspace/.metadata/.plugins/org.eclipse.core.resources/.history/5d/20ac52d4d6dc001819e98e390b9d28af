@@ -1,0 +1,38 @@
+<%@ page language="java" contentType="text/html; charset=UTF-8"
+    pageEncoding="UTF-8"%>
+<%String bloodType=request.getParameter("bloodType")
+if(bloodType!=null)
+{
+%>
+<BR>
+<Table width="500px" border="1" cellpadding="0" cellspacing="0">
+<tr>
+	<td width="200 px">혈액형</td> <td><%=bloodType %>형</td>
+	
+</tr>
+<tr>
+	<td>특징</td>
+	<td>
+<%
+	if(bloodType.equals("A")){
+%>
+성실하고 신중함
+<% }else if(bloodType.equals("B")){ 
+
+%>
+창조적이며 집중력이 강함
+<%
+}else if(bloodType.equals("O")){
+%>
+적극적이며, 개방적
+<%}else if(bloodType.equals("AB")){
+
+%>
+합리적이며, 기능적
+<%} %>
+	</td>
+	
+</tr>
+</Table>
+<%} %>
+

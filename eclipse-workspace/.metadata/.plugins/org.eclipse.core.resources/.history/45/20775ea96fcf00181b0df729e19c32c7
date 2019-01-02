@@ -1,0 +1,21 @@
+<%@ page language="java" contentType="text/html; charset=UTF-8"
+    pageEncoding="UTF-8" buffer="10kb"%>
+    
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+</head>
+<body>
+	<b>현재 Buffer 상태<br><br></b>
+	<%
+		int intTotal=out.getBufferSize();
+		int intRemain=out.getRemaining();
+		
+		out.println("Buffer 전체 크기 : "+intTotal+"<BR>");
+		out.flush();
+		out.println("Buffer 현재 사용량 : "+intRemain);
+	%>
+</body>
+</html>
